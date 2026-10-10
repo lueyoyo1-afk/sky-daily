@@ -1,0 +1,57 @@
+import java.util.Properties
+
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+def keystoreProps = new File(rootDir, "keystore.properties")
+def ks = new Properties()
+if (keystoreProps.exists()) {
+    ks.load(new FileInputStream(keystoreProps))
+}
+
+android {
+    namespace 'com.lueyoyo.skydaily'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.lueyoyo.skydaily"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0.0"
+    }
+
+    signingConfigs {
+        if (keystoreProps.exists()) {
+            release {
+                storeFile file(ks['storeFile'])
+                storePassword ks['storePassword']
+                keyAlias ks['keyAlias']
+                keyPassword ks['keyPassword']
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            if (keystoreProps.exists()) {
+                signingConfig signingConfigs.release
+            }
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+}
+
+dependencies {
+    implementation 'androidx.webkit:webkit:1.10.0'
+}
