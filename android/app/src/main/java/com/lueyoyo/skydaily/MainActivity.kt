@@ -1,12 +1,12 @@
 package com.lueyoyo.skydaily
 
-import android.app.Activity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
 
-class MainActivity : Activity() {
+class MainActivity : AppCompatActivity() {
     private lateinit var web: WebView
 
     override fun onCreate(b: Bundle?) {
