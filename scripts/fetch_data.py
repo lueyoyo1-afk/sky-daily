@@ -22,8 +22,8 @@ except Exception:
     sky_api = None
 import validate_data        # 数据可靠性校验层（无外部依赖，必可用）
 
-DATA = "/workspace/data.json"
-ROOT = os.path.dirname(DATA)   # /workspace —— 本地图片落在 ROOT/assets/
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   # 仓库根目录（本地=/workspace，CI=检出目录）
+DATA = os.path.join(ROOT, "data.json")
 HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
 YEAR = 2026
 WEEK = ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"]

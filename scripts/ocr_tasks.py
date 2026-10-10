@@ -8,7 +8,7 @@ OCR 每日任务模块（混合方案的「人工/OCR」部分）
 import os, re, json, subprocess, sys
 from PIL import Image, ImageDraw, ImageFont
 
-ROOT = "/workspace"
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 INPUT_DIR = os.path.join(ROOT, "input")
 DATA = os.path.join(ROOT, "data.json")
 GUIDES = os.path.join(ROOT, "guides.json")
