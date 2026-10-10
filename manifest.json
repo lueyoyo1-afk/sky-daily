@@ -1,0 +1,17 @@
+{
+  "name": "光遇 · 每日资讯",
+  "short_name": "光遇资讯",
+  "description": "光遇国服每日资讯：每日任务、复刻先祖、季蜡/大蜡烛位置、联动活动与全季节攻略",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#eef1f8",
+  "theme_color": "#6c8cff",
+  "lang": "zh-CN",
+  "icons": [
+    { "src": "./icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "./icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "./icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

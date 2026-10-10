@@ -1,0 +1,125 @@
+{
+  "meta": {
+    "server": "国服（网易）",
+    "updatedAt": "2026-10-10",
+    "sourceNote": "混合数据源：复刻/活动/工坊等结构化字段可由后端定时聚合（官方微博、233乐园、游侠等）自动写入；每日任务与落石点由运营每日人工编辑或 OCR 补充。修改本文件并刷新页面即可更新资讯。",
+    "updatedTs": "2026-10-10T03:26:01",
+    "dailySource": "third-api:t1qq"
+  },
+  "today": {
+    "dateLabel": "2026年10月10日 星期六",
+    "freeMagic": "返老还童 / 长大成人",
+    "workshopNote": "筑巢工坊家具每周一刷新；本周为 13 周轮替的第 12/13 周",
+    "dailyTasks": [
+      "在禁阁的庇护所中捕捉3个光点",
+      "在水母上回复能量",
+      "点燃20根蜡烛",
+      "在禁阁的神坛旁冥想"
+    ],
+    "fallenStone": {
+      "location": "",
+      "type": "",
+      "times": [],
+      "source": "api-image"
+    },
+    "dailyTasksSource": "api",
+    "bigCandles": {
+      "map": "云野",
+      "mapKey": "yunye"
+    },
+    "scheduleNote": "双倍心火、全图大蜡烛进行中",
+    "seasonCandles": {
+      "status": "空窗期",
+      "map": "星光海 / 珍珠村",
+      "mapKey": "pearl",
+      "spots": [],
+      "note": "当前为季节空窗期（上个季节已结束），暂无季节蜡烛。珍珠季 将于 2026-10-22 开启，开启后季蜡会每天在【星光海 / 珍珠村】刷新 4 处，届时本页会自动更新为真实位置。"
+    },
+    "seasonCandlesImage": "https://api.t1qq.com/api/sky/gy/img/pdt/jl/jg.png",
+    "taskImages": [
+      "assets/taskpic.jpg"
+    ],
+    "candleApi": [
+      "云野3",
+      "雨林2",
+      "暮土2"
+    ],
+    "bigCandleImages": [
+      "assets/bigcandle1.jpg",
+      "assets/bigcandle2.jpg",
+      "assets/bigcandle3.jpg"
+    ],
+    "fallenStoneImages": [
+      "assets/stone1.jpg",
+      "assets/stone2.jpg",
+      "assets/stone3.jpg"
+    ]
+  },
+  "currentRebirth": null,
+  "nextRebirthForecast": {
+    "ancestor": "（预测）下一位复刻先祖",
+    "season": "待官方官宣",
+    "start": "2026-10-15T06:00:00",
+    "forecast": true
+  },
+  "lastRebirth": {
+    "ancestor": "圣岛季 · 放松日浴者",
+    "season": "圣岛季",
+    "start": "2026-10-01T06:00:00",
+    "end": "2026-10-05T12:00:00",
+    "items": [],
+    "source": "https://www.duotegame.com/mgl/225744.html"
+  },
+  "activities": [
+    {
+      "name": "秋宵节",
+      "start": "2026-09-24T00:00:00",
+      "end": "2026-10-14T23:59:00",
+      "tokenToday": 5,
+      "tokenNote": "发布 / 观看共享空间神坛获取代币",
+      "status": "进行中"
+    }
+  ],
+  "rebirthHistory": [
+    {
+      "ancestor": "圣岛季 · 放松日浴者",
+      "start": "2026-10-01",
+      "end": "2026-10-05"
+    },
+    {
+      "ancestor": "归属季 · 智慧长者",
+      "start": "2026-09-17",
+      "end": "2026-09-21"
+    },
+    {
+      "ancestor": "（缤纷飞行日联动）",
+      "start": "2026-09-03",
+      "end": "2026-09-07"
+    },
+    {
+      "ancestor": "梦想季 · 回旋大师",
+      "start": "2026-08-20",
+      "end": "2026-08-24"
+    }
+  ],
+  "season": {
+    "name": "珍珠季",
+    "start": "2026-10-22T00:00:00",
+    "preheat": "2026-10-13",
+    "maps": [
+      "星光海",
+      "珍珠村"
+    ],
+    "items": [
+      "珍珠斗篷",
+      "贝壳头饰",
+      "鱼尾裙",
+      "船锚背饰",
+      "海浪面具",
+      "鹿角"
+    ],
+    "source": "https://app.ali213.net/gl/1814567.html"
+  },
+  "lastDailyUrl": "https://www.9game.cn/skygy/12123621.html",
+  "calendarImage": "assets/calendar.jpg"
+}

@@ -1,0 +1,70 @@
+name: 部署到 GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  schedule:
+    # 每天 00:00 北京时间（UTC 16:00）自动重建并部署
+    - cron: '0 16 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 同一时间只跑一个部署，避免冲突
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 安装 Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 安装依赖
+        run: pip install beautifulsoup4 pillow
+
+      - name: 抓取最新数据（含数据可靠性校验）
+        env:
+          SKY_API_KEY: ${{ secrets.SKY_API_KEY }}
+        run: python3.11 scripts/fetch_data.py
+
+      - name: 自动发现活动 / 联动 / 新季节
+        run: python3.11 scripts/discover_events.py || true
+
+      - name: 内联构建单文件
+        run: python3.11 scripts/build_inline.py
+
+      - name: 整理部署产物
+        run: |
+          mkdir -p dist/icons
+          cp index.html manifest.json sw.js dist/
+          cp data.json data_status.json guides.json seasonGuides.json events.json rebirthGuides.json dist/ 2>/dev/null || true
+          cp icons/*.png dist/icons/ 2>/dev/null || true
+
+      - name: 配置 Pages
+        uses: actions/configure-pages@v5
+
+      - name: 上传产物
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: 部署
+        id: deployment
+        uses: actions/deploy-pages@v4

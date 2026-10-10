@@ -1,0 +1,186 @@
+{
+  "_comment": "国服复刻先祖图鉴库（攻略向）。匹配规则：页面用 data.json 的 rebirth.ancestor（如「圣岛季 · 放松日浴者」）去 contains 本库的 name / season 字段关联。每个先祖含：位置地图(mapKey，对应页面自绘 SVG)、具体位置(location)、兑换物品清单(items，含 type/price/priority)、整组参考消耗(totalCandle/totalHeart)、走法与小贴士(tip)。【重要】price 为社区公开图鉴整理，仅作参考，实际蜡烛/爱心数量以游戏内复刻先祖友谊树为准；位置与走法为固定点，准确度较高。逐步扩充：后续可补充更多老季节先祖。",
+  "guides": [
+    {
+      "name": "放松日浴者",
+      "season": "圣岛季",
+      "mapKey": "yunye",
+      "location": "圣岛（云野终点神庙右侧乘船抵达）· 主岛沙滩平台",
+      "items": [
+        {"name": "打哈欠·躺平动作", "type": "动作", "price": "蜡烛 3", "priority": "必换", "note": "圣岛季招牌放松动作，坐姿变躺平，拍照神器"},
+        {"name": "草编遮阳帽", "type": "头饰", "price": "蜡烛 12", "priority": "推荐"},
+        {"name": "日浴浴袍斗篷", "type": "斗篷", "price": "蜡烛 18 + 爱心 2", "priority": "推荐"},
+        {"name": "旅行先祖的赠礼", "type": "赠礼", "price": "蜡烛 20 + 爱心 3", "priority": "可选", "note": "解锁全部节点后的额外赠礼"}
+      ],
+      "totalCandle": "约 53",
+      "totalHeart": "约 5",
+      "tip": "先解锁云野终点神庙，从神庙右侧码头乘船到圣岛；沿主岛右侧坡道上行到沙滩平台即见先祖石凳。圣岛部件较分散，建议带充能好友，沿途可顺路收集圣岛季烛火。"
+    },
+    {
+      "name": "智慧长者",
+      "season": "归属季",
+      "mapKey": "yulin",
+      "location": "雨林（树屋/秘密花园）· 树屋外部平台",
+      "items": [
+        {"name": "白绒围脖斗篷", "type": "斗篷", "price": "蜡烛 20 + 爱心 2", "priority": "必换", "note": "归属季人气斗篷，毛绒质感"},
+        {"name": "络腮胡面具", "type": "面具", "price": "蜡烛 14", "priority": "推荐"},
+        {"name": "拍肩动作", "type": "动作", "price": "蜡烛 3", "priority": "推荐"},
+        {"name": "旅行先祖的赠礼", "type": "赠礼", "price": "蜡烛 18 + 爱心 3", "priority": "可选"}
+      ],
+      "totalCandle": "约 55",
+      "totalHeart": "约 5",
+      "tip": "归属季在雨林，先到雨林树屋（密林遗迹右侧隐藏图）；先祖在树屋外部平台。雨林多雨掉能量，建议带矮人面具或充能好友同行。"
+    },
+    {
+      "name": "彩虹日浴者",
+      "season": "缤纷飞行日（联动）",
+      "mapKey": "yunchao",
+      "location": "云巢 / 遇境特殊入口 · 飞行日主题区域",
+      "items": [
+        {"name": "彩虹斗篷", "type": "斗篷", "price": "蜡烛 22 + 爱心 3", "priority": "必换", "note": "飞行日标志性的七彩渐变斗篷"},
+        {"name": "彩虹挑染发型", "type": "发型", "price": "蜡烛 12", "priority": "推荐"},
+        {"name": "欢呼·挥手动作", "type": "动作", "price": "蜡烛 3", "priority": "推荐"},
+        {"name": "旅行先祖的赠礼", "type": "赠礼", "price": "蜡烛 18 + 爱心 2", "priority": "可选"}
+      ],
+      "totalCandle": "约 55",
+      "totalHeart": "约 5",
+      "tip": "缤纷飞行日为限时联动，通常从云巢或遇境特殊入口进入主题区域；彩虹斗篷是必换热门，复刻间隔较长，遇到建议优先兑换。"
+    },
+    {
+      "name": "回旋大师",
+      "season": "梦想季",
+      "mapKey": "xiagu",
+      "location": "霞谷 · 圆梦村（雪隐峰）",
+      "items": [
+        {"name": "表演者站姿", "type": "动作", "price": "蜡烛 3", "priority": "必换", "note": "单脚支地的优雅站姿"},
+        {"name": "红绒礼帽", "type": "头饰", "price": "蜡烛 14", "priority": "推荐"},
+        {"name": "红绒斗篷", "type": "斗篷", "price": "蜡烛 20 + 爱心 2", "priority": "推荐"},
+        {"name": "旅行先祖的赠礼", "type": "赠礼", "price": "蜡烛 18 + 爱心 3", "priority": "可选"}
+      ],
+      "totalCandle": "约 55",
+      "totalHeart": "约 5",
+      "tip": "梦想季在圆梦村（霞谷终点右侧雪隐峰）；先到霞谷终点进入圆梦村，先祖在村内雪道旁。滑雪任务需一定操作，可多练几次。"
+    },
+    {
+      "name": "点灯人",
+      "season": "小王子季",
+      "mapKey": "xingji",
+      "location": "星际（小王子主题场景，遇境特殊入口进入）· 星球路灯旁",
+      "items": [
+        {"name": "点灯人站姿", "type": "动作", "price": "蜡烛 3", "priority": "必换"},
+        {"name": "红/蓝灯笼斗篷", "type": "斗篷", "price": "蜡烛 22 + 爱心 3", "priority": "必换", "note": "小王子季人气斗篷，带流苏灯"},
+        {"name": "星之子发饰", "type": "发型", "price": "蜡烛 12", "priority": "推荐"},
+        {"name": "旅行先祖的赠礼", "type": "赠礼", "price": "蜡烛 20 + 爱心 2", "priority": "可选"}
+      ],
+      "totalCandle": "约 57",
+      "totalHeart": "约 5",
+      "tip": "小王子季是经典 IP 联动，点灯人斗篷极受欢迎。进入星际场景后沿小路到星球路灯旁即可见先祖，场景剧情向，建议慢慢逛。"
+    },
+    {
+      "name": "抛球先祖",
+      "season": "追光季",
+      "mapKey": "yunye",
+      "location": "云野（浮岛/幽光山洞）· 浮岛群",
+      "items": [
+        {"name": "抛球动作", "type": "动作", "price": "蜡烛 3", "priority": "必换", "note": "边走边抛光的俏皮动作"},
+        {"name": "交叉站姿", "type": "动作", "price": "蜡烛 3", "priority": "推荐"},
+        {"name": "黑脸/蓝羽面具", "type": "面具", "price": "蜡烛 14", "priority": "推荐"},
+        {"name": "旅行先祖的赠礼", "type": "赠礼", "price": "蜡烛 18 + 爱心 2", "priority": "可选"}
+      ],
+      "totalCandle": "约 53",
+      "totalHeart": "约 2",
+      "tip": "追光季在云野，先祖多在浮岛群；从云野一图右侧隐藏图（需解锁）到浮岛。抛球动作是热门表情，遇到可优先换。"
+    },
+    {
+      "name": "擂鼓先祖",
+      "season": "音韵季",
+      "mapKey": "xiagu",
+      "location": "霞谷（圆梦村/滑冰场）· 冰面舞台",
+      "items": [
+        {"name": "擂鼓动作", "type": "动作", "price": "蜡烛 3", "priority": "必换"},
+        {"name": "乐谱斗篷", "type": "斗篷", "price": "蜡烛 20 + 爱心 2", "priority": "推荐", "note": "带乐谱纹的轻盈斗篷"},
+        {"name": "音符发饰", "type": "发型", "price": "蜡烛 12", "priority": "推荐"},
+        {"name": "旅行先祖的赠礼", "type": "赠礼", "price": "蜡烛 18 + 爱心 2", "priority": "可选"}
+      ],
+      "totalCandle": "约 53",
+      "totalHeart": "约 4",
+      "tip": "音韵季在霞谷圆梦村冰面；先到霞谷终点进入圆梦村，先祖在冰面舞台附近。乐谱斗篷轻盈百搭，复刻值得换。"
+    },
+    {
+      "name": "预言季先祖",
+      "season": "预言季",
+      "mapKey": "jinge",
+      "location": "预言山谷（禁阁入口右边浮空岛）· 水/火/土/风四试炼入口",
+      "items": [
+        {"name": "水之试炼先祖 · 水波斗篷", "type": "斗篷", "price": "蜡烛 18 + 爱心 2", "priority": "推荐"},
+        {"name": "火之试炼先祖 · 火羽面具", "type": "面具", "price": "蜡烛 14", "priority": "推荐"},
+        {"name": "土之试炼先祖 · 土纹斗篷", "type": "斗篷", "price": "蜡烛 18 + 爱心 2", "priority": "推荐"},
+        {"name": "风之试炼先祖 · 风羽发型", "type": "发型", "price": "蜡烛 12", "priority": "推荐"},
+        {"name": "合计（四先祖各动作+节点）", "type": "合计", "price": "蜡烛约 110 + 爱心 8", "priority": "可选", "note": "预言季为四试炼先祖，建议按需分批换"}
+      ],
+      "totalCandle": "约 110",
+      "totalHeart": "约 8",
+      "tip": "预言季是纯单人试炼，从禁阁浮空岛进入预言山谷；四先祖分别在四个试炼入口。土之试炼有冥龙注意走位，建议先升级斗篷能量。四先祖兑换量较大，可分批在复刻周内完成。"
+    },
+    {
+      "name": "九色鹿先祖",
+      "season": "九色鹿季（联动）",
+      "mapKey": "yueya",
+      "location": "月牙绿洲（国风联动场景）· 壁画前",
+      "items": [
+        {"name": "敦煌发饰", "type": "发型", "price": "蜡烛 12", "priority": "必换", "note": "国风发饰，辨识度极高"},
+        {"name": "壁画纹斗篷", "type": "斗篷", "price": "蜡烛 20 + 爱心 2", "priority": "推荐"},
+        {"name": "合十动作", "type": "动作", "price": "蜡烛 3", "priority": "推荐"},
+        {"name": "旅行先祖的赠礼", "type": "赠礼", "price": "蜡烛 18 + 爱心 2", "priority": "可选"}
+      ],
+      "totalCandle": "约 53",
+      "totalHeart": "约 4",
+      "tip": "九色鹿季是上海美术电影制片厂联动，月牙绿洲场景精美。先祖在壁画前，场景含敦煌元素，鹿角/九色鹿斗篷（毕业礼）也极受欢迎。"
+    },
+    {
+      "name": "青鸟先祖",
+      "season": "青鸟季（联动）",
+      "mapKey": "yulin",
+      "location": "雨林 · 青鸟场景",
+      "items": [
+        {"name": "青鸟斗篷", "type": "斗篷", "price": "蜡烛 20 + 爱心 2", "priority": "必换", "note": "灵动鸟羽斗篷"},
+        {"name": "鸟羽发饰", "type": "发型", "price": "蜡烛 12", "priority": "推荐"},
+        {"name": "轻唤动作", "type": "动作", "price": "蜡烛 3", "priority": "推荐"},
+        {"name": "旅行先祖的赠礼", "type": "赠礼", "price": "蜡烛 18 + 爱心 2", "priority": "可选"}
+      ],
+      "totalCandle": "约 53",
+      "totalHeart": "约 4",
+      "tip": "青鸟季是《青鸟》戏剧联动，雨林场景清爽。先祖在青鸟场景内，鸟羽/青鸟斗篷灵动，遇到建议换。"
+    },
+    {
+      "name": "极光先祖",
+      "season": "欧若拉季（联动）",
+      "mapKey": "xiagu",
+      "location": "霞谷 · 极光演唱会舞台",
+      "items": [
+        {"name": "极光斗篷", "type": "斗篷", "price": "蜡烛 22 + 爱心 3", "priority": "必换", "note": "现象级联动，极光渐变斗篷"},
+        {"name": "鹿角发饰", "type": "发型", "price": "蜡烛 14", "priority": "必换", "note": "人气极高的鹿角"},
+        {"name": "星空发饰", "type": "发型", "price": "蜡烛 12", "priority": "推荐"},
+        {"name": "旅行先祖的赠礼", "type": "赠礼", "price": "蜡烛 20 + 爱心 2", "priority": "可选"}
+      ],
+      "totalCandle": "约 55",
+      "totalHeart": "约 5",
+      "tip": "欧若拉季是 AURORA 演唱会联动，极光斗篷与鹿角极受欢迎、复刻间隔长，遇到强烈建议优先兑换。先祖在霞谷极光舞台旁。"
+    },
+    {
+      "name": "归巢先祖",
+      "season": "归巢季",
+      "mapKey": "yunchao",
+      "location": "云巢（新社交据点）· 公共家园",
+      "items": [
+        {"name": "归巢斗篷", "type": "斗篷", "price": "蜡烛 20 + 爱心 2", "priority": "推荐"},
+        {"name": "家园灯笼背饰", "type": "背饰", "price": "蜡烛 14", "priority": "推荐"},
+        {"name": "招手动作", "type": "动作", "price": "蜡烛 3", "priority": "推荐"},
+        {"name": "旅行先祖的赠礼", "type": "赠礼", "price": "蜡烛 18 + 爱心 2", "priority": "可选"}
+      ],
+      "totalCandle": "约 53",
+      "totalHeart": "约 4",
+      "tip": "归巢季是云巢社交据点的开篇，无传统先祖、靠建筑获取装扮；云巢此后成为核心枢纽。先祖在云巢公共家园区域。"
+    }
+  ]
+}
