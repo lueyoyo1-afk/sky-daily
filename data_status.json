@@ -1,12 +1,12 @@
 {
-  "checkedAt": "2026-10-10T12:45:11",
+  "checkedAt": "2026-10-10T13:06:08",
   "level": "ok",
   "summary": "数据校验通过 ✓",
   "issues": [],
   "provenance": {
-    "api": "skip",
-    "article": "skip",
-    "rebirth": "skip",
-    "season": "skip"
+    "api": "ok",
+    "article": "ok",
+    "rebirth": "ok",
+    "season": "ok"
   }
 }

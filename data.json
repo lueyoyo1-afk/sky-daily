@@ -3,7 +3,7 @@
     "server": "国服（网易）",
     "updatedAt": "2026-10-10",
     "sourceNote": "混合数据源：复刻/活动/工坊等结构化字段可由后端定时聚合（官方微博、233乐园、游侠等）自动写入；每日任务与落石点由运营每日人工编辑或 OCR 补充。修改本文件并刷新页面即可更新资讯。",
-    "updatedTs": "2026-10-10T03:26:01",
+    "updatedTs": "2026-10-10T13:05:58",
     "dailySource": "third-api:t1qq"
   },
   "today": {
@@ -17,17 +17,20 @@
       "在禁阁的神坛旁冥想"
     ],
     "fallenStone": {
-      "location": "",
-      "type": "",
-      "times": [],
-      "source": "api-image"
+      "location": "霞谷圆梦村",
+      "type": "红石",
+      "times": [
+        "10:08-11:00",
+        "14:08-15:00",
+        "22:08-23:00"
+      ]
     },
     "dailyTasksSource": "api",
     "bigCandles": {
       "map": "云野",
       "mapKey": "yunye"
     },
-    "scheduleNote": "双倍心火、全图大蜡烛进行中",
+    "scheduleNote": "全图大蜡烛进行中",
     "seasonCandles": {
       "status": "空窗期",
       "map": "星光海 / 珍珠村",
@@ -120,6 +123,6 @@
     ],
     "source": "https://app.ali213.net/gl/1814567.html"
   },
-  "lastDailyUrl": "https://www.9game.cn/skygy/12123621.html",
+  "lastDailyUrl": "https://www.9game.cn/skygy/12126590.html",
   "calendarImage": "assets/calendar.jpg"
 }

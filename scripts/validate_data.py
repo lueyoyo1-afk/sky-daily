@@ -116,18 +116,15 @@ def run(data, art=None, prov=None, root=None):
             "大蜡烛地图接口与文章不一致",
             f"接口：{' / '.join(api_maps)}；文章：{' / '.join(art_maps)}。可能文章尚未更新到今日轮换。")
 
-    # 每日任务：接口 vs 文章
-    if t.get("dailyTasksSource") == "api" and art and (art.get("dailyTasks") or []):
-        at = set(art["dailyTasks"])
-        dt = set(t.get("dailyTasks") or [])
-        if len(at) >= 3 and dt and not dt.issubset(at) and not at.issubset(dt):
-            add("TASK_CONFLICT", "warn",
-                "每日任务接口与文章不一致",
-                "接口与攻略站文章的每日任务不同，可能文章未更新或接口延迟，建议人工核对。")
+    # 每日任务：接口与文章措辞本就不同（同一任务两边描述各异），
+    # 按字符串比对会天天误报，故只做「数量」合理性校验（见下方 TASK_COUNT），
+    # 不在此做接口-文章任务文本的交叉比对。
 
-    # 免费魔法：接口 vs 文章
+    # 免费魔法：接口 vs 文章（按分隔符拆成集合比对，避免「/」与「、」造成误报）
     if api == "ok" and (t.get("freeMagic") or "").strip() and art and (art.get("freeMagic") or "").strip():
-        if t["freeMagic"] != art["freeMagic"]:
+        a = {x.strip() for x in re.split(r"[/、,，]+", t["freeMagic"]) if x.strip()}
+        b = {x.strip() for x in re.split(r"[/、,，]+", art["freeMagic"]) if x.strip()}
+        if a and b and a != b:
             add("MAGIC_CONFLICT", "warn",
                 "免费魔法接口与文章不一致",
                 f"接口：{t['freeMagic']}；文章：{art['freeMagic']}。")

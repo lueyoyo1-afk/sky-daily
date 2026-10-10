@@ -201,10 +201,12 @@ def parse_daily(html):
     if wm:
         out["workshopNote"] = f"筑巢工坊家具每周一刷新；本周为 13 周轮替的第 {wm.group(1)}/13 周"
 
-    # 今日大蜡烛位置
-    bm = re.search(r'今日大蜡烛位置[」』】）]?\s*\n?\s*([^\n（(]{1,24})', text)
+    # 今日大蜡烛位置（抓一段窗口提取全部已知地图名，避免多行写法只取到第一个）
+    bm = re.search(r'今日大蜡烛位置[」』】）]?\s*[:：]?\s*([\s\S]{0,80}?)(?:今日季节|今日免费|落石点|日程提醒|魔法工坊|常规免费|\n\n|$)', text)
     if bm:
-        mp = bm.group(1).strip()
+        seg = bm.group(1)
+        found = [m for m in ["云野", "雨林", "霞谷", "暮土", "禁阁", "晨岛", "云巢"] if m in seg]
+        mp = " ".join(found) if found else seg.strip().split("\n")[0][:24]
         out["bigCandles"] = {"map": mp, "mapKey": mapkey(mp)}
 
     # 季节蜡烛（季蜡）：季节进行中文章才会给出 4 处位置
@@ -309,6 +311,9 @@ def main():
     # 今日日期动态生成；若站方标题给出具体那天，以站方为准（见下方 2）
     target = now
 
+    # 数据来源可追溯（供 validate_data.py 报告哪些源成功/失败）
+    prov = {"api": "skip", "article": "skip", "rebirth": "skip", "season": "skip"}
+
     # 1) 复刻先祖
     results = []
     for url in REBIRTH_SOURCES:
@@ -338,7 +343,6 @@ def main():
     prov["rebirth"] = "ok" if results else "fail"
 
     # 2) 真实每日任务（优先第三方实时接口，失效再回退 9game 文章）
-    prov = {"api": "skip", "article": "skip", "rebirth": "skip", "season": "skip"}
     daily_url = data.get("lastDailyUrl") or DAILY_SEED_URL
     api_ok = try_api_first(data)
     api_configured = bool(sky_api and sky_api.has_key())
