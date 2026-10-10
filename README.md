@@ -128,6 +128,8 @@ cd /workspace && python3.11 -m http.server 8080
 | `scripts/validate_data.py` | **数据可靠性校验**：多源交叉比对 + 字段合理性，产出 `data_status.json` 供页面告警 |
 | `scripts/check_api.py` | 接口自检 / `--dump` 打印原始返回 |
 | `scripts/set_api_key.sh` | 一行保存 API key 到 `config/api.env`（权限 600） |
+| `scripts/push_notify.py` | **每日推送触发**：读 data.json 组摘要，调 Supabase `push-send` |
+| `scripts/verify_push.py` | CDP 验证线上 Web Push 前端（按钮/SW/无报错） |
 | `sw.js` / `manifest.json` | PWA：离线可用、可添加到主屏 |
 | `logs/` | 更新日志，按天分文件 |
 
@@ -283,3 +285,18 @@ KEY 只存在本机 `config/api.env`（权限 600），不会内联进 `index.ht
 
 手动巡检：`python3.11 scripts/validate_data.py`（读当前 data.json 出报告）。
 告警条的样式与文案见 `index.html` 的 `renderHealth()`；验证脚本：`scripts/verify_health.py`。
+
+### 8. 每日 Web Push 推送（0 点主动通知）
+「信息找人」：每天 0 点数据更新后，主动给订阅者发一条通知（大蜡烛地图 / 落石 / 免费魔法摘要）。
+
+- **订阅**：页头 🔔 铃铛按钮 → 允许通知 → 浏览器生成 Web Push 订阅，用 anon key 直接入库
+  `push_subscriptions`（RLS 仅允许 anon 插入，拿不到他人端点）；
+- **发送**：Supabase Edge Function `push-send`（Deno，纯 Web Crypto 实现 RFC8291 aes128gcm + VAPID，
+  无外部依赖）—— 校验 Bearer 令牌后读订阅、加密投递，**VAPID 私钥与订阅密钥不离开 Supabase**；
+- **触发**：GitHub Actions 每日 0 点 `fetch+build` 后跑 `scripts/push_notify.py` 组摘要并调 `push-send`。
+
+> 基础设施已全部上线并验证（Edge Function 鉴权/响应、anon 插入 RLS、Actions 触发返回
+> `{sent,failed,total}`、线上 SW 注册 + push 事件处理器）。**真机通知投递**需你在手机浏览器
+> 点 🔔 订阅后实测（沙箱无头浏览器无法完整模拟 FCM/APNs 投递）。订阅后可让我手动触发一次测试推送。
+
+落点：Supabase 项目 `xiangsuZZ`（ref `mdkvbklgkmwtfscderrc`），表/函数均 `push_` 前缀，与现有 `chats`/`personas` 隔离。
