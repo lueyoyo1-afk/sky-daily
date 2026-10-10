@@ -43,6 +43,11 @@ jobs:
       - name: 内联构建单文件
         run: python3.11 scripts/build_inline.py
 
+      - name: 发送每日推送（0 点更新后通知订阅者）
+        env:
+          PUSH_SEND_TOKEN: ${{ secrets.PUSH_SEND_TOKEN }}
+        run: python3.11 scripts/push_notify.py || true
+
       - name: 整理部署产物
         run: |
           mkdir -p dist/icons

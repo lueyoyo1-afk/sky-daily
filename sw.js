@@ -49,3 +49,34 @@ self.addEventListener("fetch", e => {
       .catch(() => caches.match(e.request))
   );
 });
+
+/* ---------- Web Push：接收推送并展示通知 ---------- */
+self.addEventListener("push", e => {
+  let d = {};
+  try { d = e.data ? e.data.json() : {}; }
+  catch (err) { d = { title: e.data ? e.data.text() : "光遇每日资讯" }; }
+  const title = d.title || "光遇每日资讯";
+  e.waitUntil(self.registration.showNotification(title, {
+    body: d.body || "今日资讯已更新",
+    icon: "./icons/icon-192.png",
+    badge: "./icons/icon-192.png",
+    tag: d.tag || "sky-daily",
+    renotify: true,
+    data: { url: d.url || "./index.html" },
+    vibrate: [80, 40, 80],
+  }));
+});
+
+/* 点击通知：聚焦已打开的页面，否则打开站点 */
+self.addEventListener("notificationclick", e => {
+  e.notification.close();
+  const url = (e.notification.data && e.notification.data.url) || "./index.html";
+  e.waitUntil(
+    self.clients.matchAll({ type: "window", includeUncontrolled: true }).then(cls => {
+      for (const c of cls) {
+        if ("focus" in c) { c.focus(); c.postMessage({ type: "nav", url }); return; }
+      }
+      return self.clients.openWindow(url);
+    })
+  );
+});
