@@ -54,6 +54,7 @@ jobs:
           cp index.html manifest.json sw.js dist/
           cp data.json data_status.json guides.json seasonGuides.json events.json rebirthGuides.json dist/ 2>/dev/null || true
           cp icons/*.png dist/icons/ 2>/dev/null || true
+          cp *.apk dist/ 2>/dev/null || true
 
       - name: 配置 Pages
         uses: actions/configure-pages@v5
