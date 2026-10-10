@@ -26,7 +26,7 @@ android {
     signingConfigs {
         if (keystoreProps.exists()) {
             release {
-                storeFile file(ks['storeFile'])
+                storeFile rootProject.file(ks['storeFile'])
                 storePassword ks['storePassword']
                 keyAlias ks['keyAlias']
                 keyPassword ks['keyPassword']
