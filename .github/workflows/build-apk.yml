@@ -25,15 +25,15 @@ jobs:
           packages: 'platforms;android-34 build-tools;34.0.0'
 
       - name: 解码签名密钥
+        env:
+          KS_BASE64: ${{ secrets.APK_KEYSTORE_BASE64 }}
+          KS_STORE_PW: ${{ secrets.APK_STORE_PASSWORD }}
+          KS_KEY_PW: ${{ secrets.APK_KEY_PASSWORD }}
         run: |
-          mkdir -p android
-          echo "${{ secrets.APK_KEYSTORE_BASE64 }}" | base64 -d > android/release.keystore
-          cat > android/keystore.properties <<EOF
-          storeFile=release.keystore
-          storePassword=${{ secrets.APK_STORE_PASSWORD }}
-          keyAlias=skydaily
-          keyPassword=${{ secrets.APK_KEY_PASSWORD }}
-          EOF
+          echo "$KS_BASE64" | base64 -d > android/release.keystore
+          printf 'storeFile=%s/android/release.keystore\nstorePassword=%s\nkeyAlias=skydaily\nkeyPassword=%s\n' \
+            "$GITHUB_WORKSPACE" "$KS_STORE_PW" "$KS_KEY_PW" > android/keystore.properties
+          test -s android/release.keystore && echo "keystore OK $(wc -c < android/release.keystore) bytes"
 
       - name: 构建 APK
         working-directory: android
