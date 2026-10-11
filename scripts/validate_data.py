@@ -17,8 +17,13 @@ validate_data.py —— 光遇国服资讯「数据可靠性校验层」
 """
 import os, re, json, sys
 from datetime import datetime
+from zoneinfo import ZoneInfo
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# 一律按北京时间判断（CI runner 为 UTC，避免"差一天"）
+def now_cst():
+    return datetime.now(ZoneInfo("Asia/Shanghai")).replace(tzinfo=None)
 
 # 国服大蜡烛固定在这几个地图间轮替
 KNOWN_MAPS = ["云野", "雨林", "霞谷", "暮土", "禁阁", "晨岛", "云巢"]
@@ -163,7 +168,7 @@ def run(data, art=None, prov=None, root=None):
     if updated_ts:
         try:
             ts = datetime.strptime(updated_ts, "%Y-%m-%dT%H:%M:%S")
-            age_h = (datetime.now() - ts).total_seconds() / 3600.0
+            age_h = (now_cst() - ts).total_seconds() / 3600.0
             if age_h > 24:
                 add("STALE", "warn",
                     "数据超过 24 小时未更新",
@@ -187,7 +192,7 @@ def run(data, art=None, prov=None, root=None):
     summary = ("数据校验通过 ✓" if level == "ok"
                else f"{len(errors)} 项错误 / {len(warns)} 项警告，需关注")
     status = {
-        "checkedAt": datetime.now().strftime("%Y-%m-%dT%H:%M:%S"),
+        "checkedAt": now_cst().strftime("%Y-%m-%dT%H:%M:%S"),
         "level": level,
         "summary": summary,
         "issues": issues,

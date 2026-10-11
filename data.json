@@ -1,29 +1,26 @@
 {
   "meta": {
     "server": "国服（网易）",
-    "updatedAt": "2026-10-10",
+    "updatedAt": "2026-10-11",
     "sourceNote": "混合数据源：复刻/活动/工坊等结构化字段可由后端定时聚合（官方微博、233乐园、游侠等）自动写入；每日任务与落石点由运营每日人工编辑或 OCR 补充。修改本文件并刷新页面即可更新资讯。",
-    "updatedTs": "2026-10-10T13:05:58",
+    "updatedTs": "2026-10-11T18:41:26",
     "dailySource": "third-api:t1qq"
   },
   "today": {
-    "dateLabel": "2026年10月10日 星期六",
-    "freeMagic": "返老还童 / 长大成人",
+    "dateLabel": "2026年10月11日 星期日",
+    "freeMagic": "体型重塑 / 彩虹魔法",
     "workshopNote": "筑巢工坊家具每周一刷新；本周为 13 周轮替的第 12/13 周",
     "dailyTasks": [
-      "在禁阁的庇护所中捕捉3个光点",
-      "在水母上回复能量",
-      "点燃20根蜡烛",
-      "在禁阁的神坛旁冥想"
+      "在云顶浮石上冥想",
+      "向一位朋友招手",
+      "向一位玩家鞠躬",
+      "在云野的云顶浮石捕捉3个光点"
     ],
     "fallenStone": {
-      "location": "霞谷圆梦村",
-      "type": "红石",
-      "times": [
-        "10:08-11:00",
-        "14:08-15:00",
-        "22:08-23:00"
-      ]
+      "location": "",
+      "type": "",
+      "times": [],
+      "source": "api-image"
     },
     "dailyTasksSource": "api",
     "bigCandles": {
@@ -38,14 +35,14 @@
       "spots": [],
       "note": "当前为季节空窗期（上个季节已结束），暂无季节蜡烛。珍珠季 将于 2026-10-22 开启，开启后季蜡会每天在【星光海 / 珍珠村】刷新 4 处，届时本页会自动更新为真实位置。"
     },
-    "seasonCandlesImage": "https://api.t1qq.com/api/sky/gy/img/pdt/jl/jg.png",
+    "seasonCandlesImage": "https://api.t1qq.com/api/sky/gy/img/pdt/jl/yy.png",
     "taskImages": [
       "assets/taskpic.jpg"
     ],
     "candleApi": [
-      "云野3",
-      "雨林2",
-      "暮土2"
+      "雨林1",
+      "暮土1",
+      "禁阁2"
     ],
     "bigCandleImages": [
       "assets/bigcandle1.jpg",

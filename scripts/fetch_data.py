@@ -12,6 +12,7 @@
 """
 import re, json, os, sys
 from datetime import datetime, timedelta
+from zoneinfo import ZoneInfo
 import urllib.request
 from bs4 import BeautifulSoup
 
@@ -306,7 +307,9 @@ def try_api_first(data):
 
 def main():
     data = json.load(open(DATA, encoding="utf-8"))
-    now = datetime.now()
+    # 关键：一律按【北京时间】计算「今天」。CI runner 是 UTC，若用 datetime.now()
+    # 会在北京 0 点触发时把日期算成前一天（UTC 仍停在前一天 16:00），导致数据"差一天"。
+    now = datetime.now(ZoneInfo("Asia/Shanghai")).replace(tzinfo=None)
 
     # 今日日期动态生成；若站方标题给出具体那天，以站方为准（见下方 2）
     target = now
@@ -492,8 +495,10 @@ def main():
         print("历史快照写入失败:", e)
 
     # 数据可靠性校验：接口/文章交叉比对 + 字段合理性，写 data_status.json（供页面告警）
+    # 注意：仅当文章确实是「今天」的才做交叉比对——攻略站常滞后一天发文，
+    #       拿昨天的文章和今天的接口数据比会误报「不一致」。
     try:
-        validate_data.run(data, art=art, prov=prov, root=ROOT)
+        validate_data.run(data, art=(art if art_is_today else None), prov=prov, root=ROOT)
     except Exception as e:
         print("数据校验异常（不影响落库）:", e)
 

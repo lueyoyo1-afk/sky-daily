@@ -11,6 +11,18 @@
       "bigCandles": "云野",
       "freeMagic": "返老还童 / 长大成人",
       "source": "api"
+    },
+    {
+      "date": "2026-10-11",
+      "dailyTasks": [
+        "在云顶浮石上冥想",
+        "向一位朋友招手",
+        "向一位玩家鞠躬",
+        "在云野的云顶浮石捕捉3个光点"
+      ],
+      "bigCandles": "云野",
+      "freeMagic": "体型重塑 / 彩虹魔法",
+      "source": "api"
     }
   ]
 }
