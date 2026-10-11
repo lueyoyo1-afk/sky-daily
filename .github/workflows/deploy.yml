@@ -4,8 +4,10 @@ on:
   push:
     branches: [ main ]
   schedule:
-    # 每天 00:00 北京时间（UTC 16:00）自动重建并部署
+    # 北京时间 00:00 / 02:00 各跑一次（16:00 / 18:00 UTC）。
+    # GitHub 定时任务可能有延迟（曾出现 0 点延迟到近 4 点），留一次兜底刷新。
     - cron: '0 16 * * *'
+    - cron: '0 18 * * *'
   workflow_dispatch:
 
 permissions:
